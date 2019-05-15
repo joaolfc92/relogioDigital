@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Relogio Digital</title>
+	<meta charset="utf-8">
+	<script>
+		
+		function relogio (){
+			var data = new Date();
+			var hor = data.getHours();
+			var min = data.getMinutes();
+			var seg = data.getSeconds();
+
+
+			
+
+
+			if(hor<10){
+				hor= "0"+hor;
+			}
+
+			if(min<10){
+				min= "0"+min;
+			}
+
+			if(seg<10){
+				seg= "0"+seg
+			}
+
+			var horas = hor+":"+min+":"+seg;
+			document.getElementById("rel").value = horas;
+
+
+			if((hor==12)&&(min>30)){
+				document.getElementById("texto").innerHTML="Hora de Comer";
+				document.getElementById("texto").style.Color="white";
+			}
+			
+
+			
+			
+		}
+
+
+			var tempo = setInterval(relogio,1000);
+	</script>
+
+	<style>
+		#rel{
+			top:50%;
+			left:  50%;
+			transform: translateX(-50%) translateY(-50%);
+			position: absolute;
+			height: 150px;
+			width: 400px;
+			background-color: black;
+			color:orange;
+			font-size: 75px;
+			text-align: center;
+			border:1px solid black;
+		}
+
+		body{
+			background-color: black;
+		}
+
+		#texto{
+			height: 100px;
+			width: 400px;
+			margin:auto;
+			background-color: black;
+			color:black;
+			font-size: 50px;
+			text-align: center;
+			line-height: 100px;
+		}
+
+	</style>
+</head>
+<body>
+	<div id="texto">Seu dia</div>
+
+	<input type="text" id="rel"/>
+
+
+</body>
+</html>
